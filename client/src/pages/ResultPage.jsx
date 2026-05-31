@@ -15,7 +15,7 @@ function ResultPage() {
                 const token = localStorage.getItem("token");
 
                 const res = await axios.get(
-                    `http://localhost:5000/api/interview/${id}`,
+                    `https://ai-mock-interview-lx7x.onrender.com/api/interview/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,

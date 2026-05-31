@@ -20,7 +20,7 @@ function InterviewPage() {
                 const token = localStorage.getItem("token");
 
                 const res = await axios.get(
-                    `http://localhost:5000/api/interview/${id}`,
+                    `https://ai-mock-interview-lx7x.onrender.com/api/interview/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ function InterviewPage() {
             const token = localStorage.getItem("token");
 
             await axios.post(
-                `http://localhost:5000/api/interview/${id}/submit`,
+                `https://ai-mock-interview-lx7x.onrender.com/api/interview/${id}/submit`,
                 {
                     answers: Object.values(answers),
                 },

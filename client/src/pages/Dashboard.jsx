@@ -33,7 +33,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/interview/my-interviews",
+        "https://ai-mock-interview-lx7x.onrender.com/api/interview/my-interviews",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -52,7 +52,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        "http://localhost:5000/api/interview/create",
+        "https://ai-mock-interview-lx7x.onrender.com/api/interview/create",
         {
           jobRole,
           experience,
@@ -87,7 +87,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       await axios.delete(
-        `http://localhost:5000/api/interview/delete/${id}`,
+        `https://ai-mock-interview-lx7x.onrender.com/api/interview/delete/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

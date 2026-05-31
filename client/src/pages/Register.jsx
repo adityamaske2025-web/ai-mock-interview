@@ -16,7 +16,7 @@ function Register() {
     try {
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://ai-mock-interview-lx7x.onrender.com/api/auth/register",
         {
           name,
           email,
