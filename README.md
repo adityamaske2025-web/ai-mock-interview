@@ -33,6 +33,24 @@ A full-stack AI-powered mock interview platform built using the MERN stack.
 * MongoDB Atlas
 * JWT Authentication
 
+## Screenshots
+
+### Login Page
+
+![Login](./screenshots/login.png)
+
+### Dashboard
+
+![Dashboard](./screenshots/dashboard.png)
+
+### Interview Page
+
+![Interview](./screenshots/interview.png)
+
+### Result Page
+
+![Result](./screenshots/result.png)
+
 ## Live Demo
 
 Frontend:
