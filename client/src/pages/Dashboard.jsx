@@ -11,7 +11,7 @@ import {
 function Dashboard() {
   const [user, setUser] = useState(null);
   const [interviews, setInterviews] = useState([]);
-
+  const [resume, setResume] = useState(null);
   const [jobRole, setJobRole] = useState("");
   const [experience, setExperience] = useState("");
   const [techStack, setTechStack] = useState("");
@@ -188,7 +188,12 @@ function Dashboard() {
           ).length
         }
       /> */}
-
+          <input
+            type="file"
+            accept=".pdf"
+            onChange={(e) => setResume(e.target.files[0])}
+            className="w-full p-3 bg-zinc-800 rounded"
+          />
           <div className="grid lg:grid-cols-2 gap-8">
 
             {/* Create Interview Form */}

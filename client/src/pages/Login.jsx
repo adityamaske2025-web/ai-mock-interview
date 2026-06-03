@@ -85,7 +85,15 @@ function Login() {
                 >
                     Login
                 </button>
-
+                <button
+                    type="button"
+                    onClick={() =>
+                        window.location.href =
+                        "https://ai-mock-interview-lx7x.onrender.com/api/auth/google"
+                    }
+                >
+                    Continue with Google
+                </button>
                 <p className="text-gray-400 mt-4 text-center">
 
                     Don't have an account?
