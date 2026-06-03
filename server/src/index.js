@@ -29,7 +29,7 @@ app.use(cors());
 app.use(express.json());
 app.use(
   session({
-    secret: "google-login-secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   })

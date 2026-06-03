@@ -10,13 +10,18 @@ import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import InterviewPage from "./pages/InterviewPage";
 import ResultPage from "./pages/ResultPage";
+import GoogleSuccess from "./pages/GoogleSuccess";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-
         <Route path="/" element={<Login />} />
+
+        <Route
+          path="/login"
+          element={<Login />}
+        />
 
         <Route
           path="/register"
@@ -50,6 +55,10 @@ function App() {
           }
         />
 
+        <Route
+          path="/google-success"
+          element={<GoogleSuccess />}
+        />
       </Routes>
     </BrowserRouter>
   );

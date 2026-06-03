@@ -1,5 +1,6 @@
 const express = require("express");
 const passport = require("passport");
+const jwt = require("jsonwebtoken");
 
 const router = express.Router();
 
@@ -12,22 +13,35 @@ router.get(
 
 router.get(
     "/google/callback",
-    passport.authenticate("google", {
-        failureRedirect: "/login",
-    }),
-    (req, res) => {
+    (req, res, next) => {
+        passport.authenticate(
+            "google",
+            (err, user) => {
+                if (err) {
+                    return res.status(500).json({
+                        error: err.message,
+                    });
+                }
 
-        const jwt = require("jsonwebtoken");
+                if (!user) {
+                    return res
+                        .status(401)
+                        .send("Google returned no user");
+                }
 
-        const token = jwt.sign(
-            { id: req.user._id },
-            "secretkey",
-            { expiresIn: "7d" }
-        );
-        console.log("TOKEN GENERATED:", token);
-        res.redirect(
-            `http://localhost:5173/google-success?token=${token}`
-        );
-});
+                const token = jwt.sign(
+                    { id: user._id },
+                    process.env.JWT_SECRET,
+                    { expiresIn: "7d" }
+                );
+
+
+                res.redirect(
+                    `http://localhost:5173/google-success?token=${token}`
+                );
+            }
+        )(req, res, next);
+    }
+);
 
 module.exports = router;
