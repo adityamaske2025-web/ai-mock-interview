@@ -1,14 +1,21 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const passport = require("passport");
+const session = require("express-session");
+const googleAuthRoutes = require(
+  "./routes/googleAuthRoutes"
+);
+
 
 dotenv.config();
-
+require("./config/passport");
 const connectDB = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const interviewRoutes = require("./routes/interviewRoutes");
+const resumeRoutes = require("./routes/resumeRoutes");
 
 const {
   generateQuestions,
@@ -20,10 +27,24 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(
+  session({
+    secret: "google-login-secret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/interview", interviewRoutes);
+app.use(
+  "/api/resume",
+  resumeRoutes
+);
+app.use("/api/auth", googleAuthRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
