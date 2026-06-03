@@ -28,7 +28,7 @@ router.get(
                         .status(401)
                         .send("Google returned no user");
                 }
-
+                console.log("JWT_SECRET =", process.env.JWT_SECRET);
                 const token = jwt.sign(
                     { id: user._id },
                     process.env.JWT_SECRET,

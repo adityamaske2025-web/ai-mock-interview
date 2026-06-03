@@ -9,6 +9,7 @@ const googleAuthRoutes = require(
 
 
 dotenv.config();
+console.log("JWT_SECRET LOADED:", process.env.JWT_SECRET);
 require("./config/passport");
 const connectDB = require("./config/db");
 
